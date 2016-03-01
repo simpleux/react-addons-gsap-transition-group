@@ -1,0 +1,29 @@
+{
+  "name": "react-addons-gsap-transition-group",
+  "version": "0.0.0",
+  "description": "ReactTransitionGroup + ReactGSAPEnhancer for transitions in anything GSAP supports.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joedski/react-addons-gsap-transition-group.git"
+  },
+  "main": "source/react-gsap-transition-group.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "gsap",
+    "transition",
+    "legacy",
+    "old-ie",
+    "ie"
+  ],
+  "author": "Joseph Sikorski <joedski@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^1.18.2",
+    "react": "^0.14.7",
+    "react-addons-transition-group": "^0.14.7",
+    "react-gsap-enhancer": "^0.2.1"
+  }
+}
