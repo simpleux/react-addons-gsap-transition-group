@@ -40,22 +40,28 @@ const ReactGSAPTransitionGroupChild = ReactGSAP()( React.createClass({
 
 	playTransitionAnimation( transitionName, complete ) {
 		if( ! this.animationControllers[ transitionName ] ) {
+			let tween = this.getTweenFactory( transitionName );
+
 			this.animationControllers[ transitionName ] =
-				this.addAnimation( this.getTweenFactory( transitionName ), {
-					onComplete: complete,
-					onCompleteScope: this
-				});
+				this.addAnimation( this.getTweenFactory( transitionName, complete ) );
 		}
 
 		this.animationControllers[ transitionName ].play();
 	},
 
-	getTweenFactory( transitionName ) {
-		return this.props[ {
+	getTweenFactory( transitionName, onComplete ) {
+		let factory = this.props[ {
 			'appear': 'tweenAppear',
 			'enter': 'tweenEnter',
 			'leave': 'tweenLeave'
 		}[ transitionName ] ];
+
+		return ( utils ) => {
+			let tween = factory( utils );
+			// Should we check fo existing onComplete callbacks?
+			tween.eventCallback( 'onComplete', onComplete, [], this );
+			return tween;
+		};
 	},
 
 	componentWillAppear( complete ) {

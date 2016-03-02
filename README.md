@@ -24,9 +24,7 @@ function transitionEnter({ target, options }) {
 		opacity: 0
 	}, {
 		x: '-=50',
-		opacity: 1,
-		onComplete: options.onComplete,
-		onCompleteScope: options.onCompleteScope
+		opacity: 1
 	});
 }
 
@@ -36,9 +34,7 @@ function transitionLeave({ target, options }) {
 		opacity: 1
 	}, {
 		x: '-=50',
-		opacity: 0,
-		onComplete: options.onComplete,
-		onCompleteScope: options.onCompleteScope
+		opacity: 0
 	});
 }
 
