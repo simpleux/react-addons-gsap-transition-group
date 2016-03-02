@@ -1,6 +1,6 @@
 {
   "name": "react-addons-gsap-transition-group",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ReactTransitionGroup + ReactGSAPEnhancer for transitions in anything GSAP supports.",
   "repository": {
     "type": "git",
