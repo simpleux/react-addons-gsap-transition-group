@@ -2,8 +2,6 @@
 
 const React = require( 'react' );
 const ReactTransitionGroup = require( 'react-addons-transition-group' );
-// const assign = require( 'react/lib/Object.assign' );
-// const assign = require( 'object-assign' );
 const ReactGSAPTransitionGroupChild = require( './react-gsap-transition-group-child' );
 const assign = require( 'object-assign' );
 
