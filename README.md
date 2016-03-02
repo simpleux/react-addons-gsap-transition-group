@@ -12,7 +12,7 @@ Usage
 
 ```js
 let React = require( 'react' );
-let ReactGSAPTransitionGroup = require( './react/react-gsap-transition-group' );
+let ReactGSAPTransitionGroup = require( 'react-addons-gsap-transition-group' );
 let TweenMax = require( 'gsap' );
 
 //////// Transition factories
