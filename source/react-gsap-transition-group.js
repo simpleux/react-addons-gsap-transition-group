@@ -2,8 +2,10 @@
 
 const React = require( 'react' );
 const ReactTransitionGroup = require( 'react-addons-transition-group' );
-const assign = require( 'react/lib/Object.assign' );
+// const assign = require( 'react/lib/Object.assign' );
+// const assign = require( 'object-assign' );
 const ReactGSAPTransitionGroupChild = require( './react-gsap-transition-group-child' );
+const assign = require( 'object-assign' );
 
 
 
@@ -46,7 +48,7 @@ const ReactGSAPTransitionGroup = React.createClass({
 
 	render() {
 		return React.createElement( ReactTransitionGroup,
-			assign({}, this.props, { childFactory: this._wrapChild })
+			Object.assign({}, this.props, { childFactory: this._wrapChild })
 		);
 	}
 });

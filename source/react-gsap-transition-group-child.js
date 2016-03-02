@@ -1,7 +1,8 @@
 'use strict';
 
 const React = require( 'react' );
-const onlyChild = require( 'react/lib/onlyChild' );
+const onlyChild = React.Children.only;
+// const onlyChild = require( 'react/lib/onlyChild' );
 import ReactGSAP from 'react-gsap-enhancer';
 
 

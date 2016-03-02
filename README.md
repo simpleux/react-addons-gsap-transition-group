@@ -3,14 +3,12 @@ React Addons: GSAP Transition Group
 
 Use GSAP animations for transitions which work in any browser both GSAP and React support.  Uses [React GSAP Enhancer](https://github.com/azazdeaz/react-gsap-enhancer) to add GSAP support to React Components, and extends [ReactTransitionGroup](https://www.npmjs.com/package/react-addons-transition-group) to create an element which adds GSAP powered transitions which even work in IE8.
 
-> Note: Currently this project requires an ES6 module import transform because ReactGSAPEnhancer is exported thusly.  If you're targeting the browser, you're probably already using one.  If not, you should.
-
 
 
 Usage
 -----
 
-> Note: This example is written in ES6.
+> Note: This example is written in ES6, sorta.
 
 ```js
 let React = require( 'react' );
