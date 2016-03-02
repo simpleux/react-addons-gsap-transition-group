@@ -8,6 +8,36 @@ Use GSAP animations for transitions which work in any browser both GSAP and Reac
 Usage
 -----
 
+```
+<ReactGSAPTransitionGroup
+	tweenAppear={ tweenAppearFactory :function }
+	tweenEnter={ tweenEnterFactory :function }
+	tweenLeave={ tweenLeaveFactory :function }
+	transitionAppear={ shouldAppear :boolean }
+	transitionEnter={ shouldEnter :boolean }
+	transitionLeave={ shouldLeave :boolean }
+	></ReactGSAPTransitionGroup>
+```
+
+Functions more or less like ReactCSSTransitionGroup, although rather than `transitionName`, the three properties are used to specify the transitions.
+
+- The Tween Props
+	- These should be set to functions which take an arguments object that has the properties `target` and `options` and return a TweenLite, TweenMax, TimelineLite, or TimelineMax instance.  See the _Example_ section for a simple case of a use of `TweenMax.fromTo`.
+	- Note: If you need to target a specific element within, use `utils.target.find` and other such element finding/filtering functions.  See [React GSAP Enhancer](https://github.com/azazdeaz/react-gsap-enhancer)'s documents for more details on this.
+	- `tweenAppear: function({ target, options }): (TweenLite|TweenMax|TimelineLite|TimelineMax)` _optional_
+	- `tweenEnter: function({ target, options }): (TweenLite|TweenMax|TimelineLite|TimelineMax)`
+	- `tweenLeave: function({ target, options }): (TweenLite|TweenMax|TimelineLite|TimelineMax)`
+- The Transition Props
+	- These specify whether a transition should be played at a given life cycle point, in much the same way the same props work in ReactCSSTransitionGroup.
+	- `tweenAppear: boolean = false` determines whether or not `tweenAppear` is called.
+	- `tweenEnter: boolean = true` determines whether or not `tweenEnter` is called.
+	- `tweenLeave: boolean = true` determines whether or not `tweenLeave` is called.
+
+
+
+Example
+-------
+
 > Note: This example is written in ES6, sorta.
 
 ```js
@@ -68,6 +98,30 @@ const TransitioningList = React.createClass({
 		this.props.onRemoveItem( itemId );
 	}
 });
+```
+
+### ES5 Example of the Factory Functions
+
+```js
+function transitionEnter( utils ) {
+	return TweenMax.fromTo( utils.target, 0.3, {
+		x: '+=50',
+		opacity: 0
+	}, {
+		x: '-=50',
+		opacity: 1
+	});
+}
+
+function transitionLeave( utils ) {
+	return TweenMax.fromTo( utils.target, 0.3, {
+		x: '+=0',
+		opacity: 1
+	}, {
+		x: '-=50',
+		opacity: 0
+	});
+}
 ```
 
 
