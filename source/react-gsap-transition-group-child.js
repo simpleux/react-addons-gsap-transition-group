@@ -1,32 +1,26 @@
-'use strict';
+import React 							from 'react';
+import ReactGSAP 						from 'react-gsap-enhancer';
 
-const React = require( 'react' );
 const onlyChild = React.Children.only;
-import ReactGSAP from 'react-gsap-enhancer';
-
-
 
 const ReactGSAPTransitionGroupChild = ReactGSAP()( React.createClass({
 	displayName: 'ReactGSAPTransitionGroupChild',
 
 	propTypes: {
-		// There's no simple way to guarantee an animation is reversible so just explicitly specify
-		// any in/out transition animations.
-		// They can be reused for both appear and enter, though.
 		tweenAppear: React.PropTypes.func,
-		tweenEnter: React.PropTypes.func,
-		tweenLeave: React.PropTypes.func,
+		tweenEnter : React.PropTypes.func,
+		tweenLeave : React.PropTypes.func,
 
-		appear: React.PropTypes.bool,
-		enter: React.PropTypes.bool,
-		leave: React.PropTypes.bool
+		appear     : React.PropTypes.bool,
+		enter      : React.PropTypes.bool,
+		leave      : React.PropTypes.bool
 	},
 
 	componentWillMount() {
 		this.animationControllers = {
 			appear: null,
-			enter: null,
-			leave: null
+			enter : null,
+			leave : null
 		};
 	},
 
@@ -40,7 +34,7 @@ const ReactGSAPTransitionGroupChild = ReactGSAP()( React.createClass({
 
 	playTransitionAnimation( transitionName, complete ) {
 		if( ! this.animationControllers[ transitionName ] ) {
-			let tween = this.getTweenFactory( transitionName );
+			//let tween = this.getTweenFactory( transitionName );
 
 			this.animationControllers[ transitionName ] =
 				this.addAnimation( this.getTweenFactory( transitionName, complete ) );
@@ -52,8 +46,8 @@ const ReactGSAPTransitionGroupChild = ReactGSAP()( React.createClass({
 	getTweenFactory( transitionName, onComplete ) {
 		let factory = this.props[ {
 			'appear': 'tweenAppear',
-			'enter': 'tweenEnter',
-			'leave': 'tweenLeave'
+			'enter' : 'tweenEnter',
+			'leave' : 'tweenLeave'
 		}[ transitionName ] ];
 
 		return ( utils ) => {
